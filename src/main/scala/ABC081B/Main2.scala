@@ -9,10 +9,7 @@ object Main2 extends App {
     var reInput = List[Long]()
     input.foreach( i =>
       i % 2 match {
-        case 0 => {
-          val r =  i / 2
-          reInput ::= r
-        }
+        case 0 => reInput ::= ( i / 2 )
         case _ => return result
       }
     )
