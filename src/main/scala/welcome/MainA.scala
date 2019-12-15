@@ -1,5 +1,7 @@
 package welcome
 
+// https://atcoder.jp/contests/abs/tasks/practice_1
+
 import scala.io.StdIn._
 
 object MainA extends App {

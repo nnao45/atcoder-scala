@@ -1,5 +1,7 @@
 package ABC086A
 
+// https://atcoder.jp/contests/abs/tasks/abc086_a
+
 import scala.io.StdIn._
 
 object Main extends App {
