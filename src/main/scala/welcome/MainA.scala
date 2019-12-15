@@ -2,7 +2,7 @@ package welcome
 
 import scala.io.StdIn._
 
-object Main extends App {
+object MainA extends App {
   var input1 = readInt
   var input2 = readLine.split(" ")
   var input3 = readLine
