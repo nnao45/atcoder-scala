@@ -13,8 +13,7 @@ import scala.io.StdIn._
 
 object Main extends App {
   val inputRaw = readLine
-  val inputArray = inputRaw.toCharArray.map(char => char.toString.toInt)
   var result = 0
-  inputArray.foreach(int => result += int)
+  val inputArray = inputRaw.toCharArray.map(char => result += char.toString.toInt)
   println(result)
 }
