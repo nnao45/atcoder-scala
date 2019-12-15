@@ -4,7 +4,7 @@ package ABC081B
 
 import scala.io.StdIn._
 
-object Main extends App {
+object Main1 extends App {
   def calc(input: Array[Long], result: Int): Int = {
     input.foreach( i =>
       if (i % 2 != 0) return result
