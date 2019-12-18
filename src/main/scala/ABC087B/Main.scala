@@ -37,7 +37,7 @@ object Main extends App {
           counter += 1
         }
       })
-  } else {
+    } else {
       counter += 1
   }})
 
