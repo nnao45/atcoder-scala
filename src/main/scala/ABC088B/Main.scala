@@ -1,7 +1,6 @@
 package ABC088B
 
 import scala.io.StdIn.readLine
-import scala.collection.mutable._
 
 // https://atcoder.jp/contests/abs/tasks/abc088_b
 
