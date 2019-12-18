@@ -16,7 +16,7 @@ object Main extends App {
   val inputRaw = readLine
   val input = inputRaw.split(" ")
   val inputN = input(0)
-  val inputNList = createIntList(input(0).toInt, List())
+  val inputNList = createIntList(inputN.toInt, List())
   val inputA = input(1).toInt
   val inputB = input(2).toInt
   var counter = 0
