@@ -9,12 +9,6 @@ import scala.io.StdIn.readLine
 * 同じ種類の硬貨どうしは区別できません。2 通りの硬貨の選び方は、ある種類の硬貨についてその硬貨を選ぶ枚数が異なるとき区別されます。
 */
 
-object Max {
-  case object A
-  case object B
-  case object C
-}
-
 object Main extends App {
   def createCounterList(input: Int, result: List[Int]): List[Int] =
     if (input >= 0) createCounterList(input - 1, result :+ input) else result
