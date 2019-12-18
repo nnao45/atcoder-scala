@@ -16,9 +16,8 @@ object Max {
 }
 
 object Main extends App {
-  def createCounterList(input: Int, result: List[Int]): List[Int] = {
+  def createCounterList(input: Int, result: List[Int]): List[Int] =
     if (input >= 0) createCounterList(input - 1, result :+ input) else result
-  }
 
   val inputA = readLine.toInt
   val inputB = readLine.toInt
