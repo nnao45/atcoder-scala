@@ -13,9 +13,9 @@ import scala.io.StdIn.readLine
 
 object Main extends App {
   def drawBoth(aliceCounter: Int, bobCounter: Int, inputList: List[Int]): (Int, Int, List[Int]) = {
-      val (aliceCard, aliceRemovedList) = if (inputList.nonEmpty) (inputList(0), inputList.tail) else return (aliceCounter, bobCounter, inputList)
+      val (aliceCard, aliceRemovedList) = if (inputList.nonEmpty) (inputList.head, inputList.tail) else return (aliceCounter, bobCounter, inputList)
       val aliceNextCounter = aliceCounter + aliceCard
-      val (bobCard, bobRemoveList) = if (aliceRemovedList.nonEmpty) (aliceRemovedList(0), aliceRemovedList.tail) else return (aliceNextCounter, bobCounter, aliceRemovedList)
+      val (bobCard, bobRemoveList) = if (aliceRemovedList.nonEmpty) (aliceRemovedList.head, aliceRemovedList.tail) else return (aliceNextCounter, bobCounter, aliceRemovedList)
       val bobNextCounter =  bobCounter + bobCard
       drawBoth(aliceNextCounter, bobNextCounter , bobRemoveList)
   }
