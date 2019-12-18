@@ -10,20 +10,20 @@ object Main extends App {
   def separateNum(input: String): List[Int] =
     input.toCharArray.map(_.toString.toInt).toList
 
-  def createPrimeList(input: Int, result: List[Int]): List[Int] =
-    if (input > 0) createPrimeList(input - 1, result :+ input) else result
+  def createIntList(input: Int, result: List[Int]): List[Int] =
+    if (input > 0) createIntList(input - 1, result :+ input) else result
 
   val inputRaw = readLine
   val input = inputRaw.split(" ")
   val inputN = input(0)
-  val inputPrimeList = createPrimeList(input(0).toInt, List())
+  val inputNList = createIntList(input(0).toInt, List())
   val inputA = input(1).toInt
   val inputB = input(2).toInt
   var counter = 0
 
-  inputPrimeList.foreach(p => {
-    val sum = separateNum(p.toString).sum
-    if (sum >= inputA && sum <= inputB) counter += p
+  inputNList.foreach(n => {
+    val sum = separateNum(n.toString).sum
+    if (sum >= inputA && sum <= inputB) counter += n
   })
 
   println(counter)
