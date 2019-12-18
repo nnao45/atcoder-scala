@@ -2,6 +2,13 @@ package ABC087B
 
 import scala.io.StdIn.readLine
 
+// https://atcoder.jp/contests/abs/tasks/abc087_b
+
+/*
+* あなたは、500 円玉を A 枚、100 円玉を B 枚、50 円玉を C 枚持っています。 これらの硬貨の中から何枚かを選び、合計金額をちょうど X 円にする方法は何通りありますか。
+* 同じ種類の硬貨どうしは区別できません。2 通りの硬貨の選び方は、ある種類の硬貨についてその硬貨を選ぶ枚数が異なるとき区別されます。
+*/
+
 object Max {
   case object A
   case object B
