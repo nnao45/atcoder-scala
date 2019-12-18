@@ -39,7 +39,8 @@ object Main extends App {
       })
     } else {
       counter += 1
-  }})
+    }
+  })
 
   println(counter)
 }
