@@ -1,6 +1,7 @@
 package ABC088B
 
 import scala.io.StdIn.readLine
+import scala.collection.mutable._
 
 // https://atcoder.jp/contests/abs/tasks/abc088_b
 
@@ -15,13 +16,13 @@ object Main extends App {
   def drawBoth(aliceCounter: Int, bobCounter: Int, inputList: List[Int]): (Int, Int, List[Int]) = {
       val (aliceCard, aliceRemovedList) = if (inputList.nonEmpty) (inputList.head, inputList.tail) else return (aliceCounter, bobCounter, inputList)
       val aliceNextCounter = aliceCounter + aliceCard
-      val (bobCard, bobRemoveList) = if (aliceRemovedList.nonEmpty) (aliceRemovedList.head, aliceRemovedList.tail) else return (aliceNextCounter, bobCounter, aliceRemovedList)
+      val (bobCard, bobRemovedList) = if (aliceRemovedList.nonEmpty) (aliceRemovedList.head, aliceRemovedList.tail) else return (aliceNextCounter, bobCounter, aliceRemovedList)
       val bobNextCounter =  bobCounter + bobCard
-      drawBoth(aliceNextCounter, bobNextCounter , bobRemoveList)
+      drawBoth(aliceNextCounter, bobNextCounter , bobRemovedList)
   }
 
   val inputN = readLine.toInt
-  val inputList = readLine.split(" ").map(_.toInt).toList.sorted.reverse
+  val inputList = readLine.split(" ").map(_.toInt).toList
   val result = drawBoth(0, 0, inputList)
   println(result._1 - result._2)
 }
