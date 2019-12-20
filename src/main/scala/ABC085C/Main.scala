@@ -15,11 +15,6 @@ object Main extends App {
   def createIntList(input: Int, result: List[Int]): List[Int] =
     if (input >= 0) createIntList(input - 1, result :+ input) else result
 
-  def printResult(a: Int, b: Int, c: Int) = {
-    println(s"$a, $b, $c")
-    System.exit(0)
-  }
-
   val input = readLine.split(" ")
   val inputN = input(0).toInt
   val inputY = input(1).toInt
@@ -32,25 +27,30 @@ object Main extends App {
   val FiveKList = createIntList(maxFiveK, List())
   val OneKList = createIntList(maxOneK, List())
 
+  def task: (Int, Int, Int) = {
     TenKList.foreach(t => {
       val subTenK = inputY - t * 10000
       if (subTenK == 0 && t == inputN) {
-        printResult(t, 0, 0)
+        return (t, 0, 0)
 
       } else {
         FiveKList.foreach(f => {
           val subFiveK = inputY - t * 10000 - f * 5000
           if (subFiveK == 0 && (t + f) == inputN) {
-            printResult(t, f, 0)
+            return (t, f, 0)
           } else {
             OneKList.foreach(o => {
               val subOneK = inputY - t * 10000 - f * 5000 - o * 1000
-              if (subOneK == 0 && (t + f + o) == inputN) printResult(t, f, o)
+              if (subOneK == 0 && (t + f + o) == inputN) return (t, f, o)
             })
           }
         })
       }
     })
+    (-1, -1, -1)
+  }
 
-  printResult(-1, -1, -1)
+  val result = task
+
+  println(s"${result._1} ${result._2} ${result._3}")
 }
