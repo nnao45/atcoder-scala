@@ -16,9 +16,6 @@ object Main extends App {
   val inputN = input(0).toInt
   val inputY = input(1).toInt
 
-  var sumXY = 0
-  var sumXYZ = 0
-
   def calc(): (Int, Int, Int) = {
     for {
       x <- (0 to inputN)
