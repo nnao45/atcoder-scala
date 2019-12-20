@@ -12,45 +12,24 @@ package ABC085C
 import scala.io.StdIn._
 
 object Main extends App {
-  def createIntList(input: Int, result: List[Int]): List[Int] =
-    if (input >= 0) createIntList(input - 1, result :+ input) else result
-
   val input = readLine.split(" ")
   val inputN = input(0).toInt
   val inputY = input(1).toInt
 
-  val maxTenK = inputY / 10000
-  val maxFiveK = inputY / 5000
-  val maxOneK =  inputY / 1000
+  var sumXY = 0
+  var sumXYZ = 0
 
-  val TenKList = createIntList(maxTenK, List())
-  val FiveKList = createIntList(maxFiveK, List())
-  val OneKList = createIntList(maxOneK, List())
+  def calc(): (Int, Int, Int) = {
+    for {
+      x <- (0 to inputN)
+    } yield
+      for {
+        y <- (0 to (inputN - x))
+      } yield if (10000 * x + 5000 * y + 1000 * (inputN - x - y) == inputY) return (x, y, (inputN - x - y))
 
-  def task: (Int, Int, Int) = {
-    TenKList.foreach(t => {
-      val subTenK = inputY - t * 10000
-      if (subTenK == 0 && t == inputN) {
-        return (t, 0, 0)
-
-      } else {
-        FiveKList.foreach(f => {
-          val subFiveK = inputY - t * 10000 - f * 5000
-          if (subFiveK == 0 && (t + f) == inputN) {
-            return (t, f, 0)
-          } else {
-            OneKList.foreach(o => {
-              val subOneK = inputY - t * 10000 - f * 5000 - o * 1000
-              if (subOneK == 0 && (t + f + o) == inputN) return (t, f, o)
-            })
-          }
-        })
-      }
-    })
     (-1, -1, -1)
   }
 
-  val result = task
-
+  val result = calc()
   println(s"${result._1} ${result._2} ${result._3}")
 }
