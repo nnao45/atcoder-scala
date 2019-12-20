@@ -21,7 +21,7 @@ object Main extends App {
   }
 
   val inputN = readLine.toInt
-  val inputList = readLine.split(" ").map(_.toInt).toList
+  val inputList = readLine.split(" ").map(_.toInt).toList.sorted.reverse
   val result = drawBoth(0, 0, inputList)
   println(result._1 - result._2)
 }
